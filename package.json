@@ -1,0 +1,31 @@
+{
+  "name": "gulp-filelist",
+  "description": "Convert list of file paths in current stream to a JSON file.",
+  "version": "0.1.0",
+  "author": "Chris Roth <chris@cjroth.com>",
+  "bugs": "https://github.com/cjroth/gulp-filelist/issues",
+  "dependencies": {
+    "through": "^2.3.4",
+    "vinyl": "^0.4.2"
+  },
+  "devDependencies": {
+    "mocha": "^1.21.4",
+    "should": "^4.0.4"
+  },
+  "engines": {
+    "node": ">= 0.8"
+  },
+  "homepage": "https://github.com/cjroth/gulp-filelist/",
+  "keywords": [
+    "gulp",
+    "gulpplugin"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "https://github.com/cjroth/gulp-filelist.git",
+  "scripts": {
+    "test": "mocha --reporter spec --bail --check-leaks --require should test/",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks --require should test/",
+    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks --require should test/"
+  }
+}
