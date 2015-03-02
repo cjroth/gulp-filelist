@@ -39,8 +39,8 @@ $ npm install gulp-filelist
 
 ```
 gulp
-  .src(['awesome.file', 'lame.file'], { absolute: true })
-  .pipe(require('gulp-filelist')('filelist.json'))
+  .src(['awesome.file', 'lame.file'])
+  .pipe(require('gulp-filelist')('filelist.json', { absolute: true }))
   .pipe(gulp.dest('out'))
 ```
 Outputs:
