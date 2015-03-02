@@ -12,7 +12,7 @@ module.exports = function(out, options) {
     files.push(file);
     var path = file.path;
     if (!options.absolute) {
-      path = path.replace(new RegExp('^' + __dirname + '/'), '');
+      path = path.replace(new RegExp('^' + process.cwd() + '/'), '');
     }
     filePaths.push(path);
   };
