@@ -10,11 +10,8 @@ module.exports = function(out, options) {
 
   var onFile = function(file) {
     files.push(file);
-    var path = file.path;
-    if (!options.absolute) {
-      path = path.replace(new RegExp('^' + process.cwd() + '/'), '');
-    }
-    filePaths.push(path);
+    var path = options.absolute ? file.path : file.relative;
+    filePaths.push(path.replace(/\\/g, '/'));
   };
 
   var onEnd = function() {
