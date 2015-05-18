@@ -30,7 +30,7 @@ describe('gulp-filelist', function(done) {
       .pipe(gulp.dest('test'))
       .on('end', function(file) {
         var filelist = require(filelistPath);
-        filelist[0].should.equal(__dirname + '/test.file');
+        filelist[0].should.equal(__dirname.replace(/\\/g, '/') + '/test.file');
         fs.unlinkSync(filelistPath);
         done();
       });
