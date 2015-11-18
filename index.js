@@ -14,6 +14,9 @@ module.exports = function(out, options) {
 	if (options.absolute) {
 	  path = file.path;
 	}
+  else if (options.flatten) {
+    path = file.path.substr(file.path.lastIndexOf('/') + 1);
+  }
 	else {
 	  path = file.path.replace(process.cwd(), '');
 	  path = path.replace(new RegExp('^[/\\\\]'), '');

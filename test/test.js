@@ -36,4 +36,19 @@ describe('gulp-filelist', function(done) {
       });
   });
 
+  it('should output flattened file paths when the flatten option is true', function(done) {
+    var out = 'filelist-flatten.json';
+    var filelistPath = path.join(__dirname, out);
+    gulp
+      .src(__dirname + '/test.file', { buffer: false })
+      .pipe(gulpFilelist(out, { flatten: true }))
+      .pipe(gulp.dest('test'))
+      .on('end', function(file) {
+        var filelist = require(filelistPath);
+        filelist[0].should.equal('test.file');
+        fs.unlinkSync(filelistPath);
+        done();
+      });
+  });
+
 });
