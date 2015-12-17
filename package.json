@@ -1,12 +1,16 @@
 {
   "name": "gulp-filelist",
   "description": "Convert list of file paths in current stream to a JSON file.",
-  "version": "0.4.0",
+  "version": "0.3.0",
   "author": "Chris Roth <chris@cjroth.com>",
   "contributors": [
     {
       "name": "Paul Welsh",
       "email": "spacedawwwg@gmail.com"
+    },
+    {
+      "name": "Maxwell Barvian",
+      "email": "max@barvian.me"
     }
   ],
   "bugs": "https://github.com/cjroth/gulp-filelist/issues",
