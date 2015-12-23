@@ -9,7 +9,7 @@ describe('gulp-filelist', function(done) {
     var out = 'filelist.json';
     var filelistPath = path.join(__dirname, out);
     gulp
-      .src('test/test.file', { buffer: false })
+      .src('test/test.file')
       .pipe(gulpFilelist(out))
       .pipe(gulp.dest('test'))
       .on('end', function(file) {
@@ -25,7 +25,7 @@ describe('gulp-filelist', function(done) {
     var out = 'filelist-absolute.json';
     var filelistPath = path.join(__dirname, out);
     gulp
-      .src(__dirname + '/test.file', { buffer: false })
+      .src(__dirname + '/test.file')
       .pipe(gulpFilelist(out, { absolute: true }))
       .pipe(gulp.dest('test'))
       .on('end', function(file) {
@@ -40,7 +40,7 @@ describe('gulp-filelist', function(done) {
     var out = 'filelist-flatten.json';
     var filelistPath = path.join(__dirname, out);
     gulp
-      .src(__dirname + '/test.file', { buffer: false })
+      .src(__dirname + '/test.file')
       .pipe(gulpFilelist(out, { flatten: true }))
       .pipe(gulp.dest('test'))
       .on('end', function(file) {
