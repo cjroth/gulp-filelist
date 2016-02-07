@@ -1,38 +1,50 @@
-var through = require('through');
+'use strict';
+var pkg = require('./package');
+var gutil = require('gulp-util');
+var through = require('through2');
+var path = require('path');
 var File = require('vinyl');
 
+// consts
 module.exports = function(out, options) {
 
   options = options || {};
 
   var files = [];
-  var filePaths = [];
+  var fileList = [];
 
-  var onFile = function(file) {
+  return through.obj(function(file, enc, cb) {
+    if (file.isNull()) {
+      cb(null, file);
+      return;
+    }
+
+    if (file.isStream()) {
+      cb(new gutil.PluginError(pkg.name, 'Streams not supported'));
+      return;
+    }
+
     files.push(file);
-    var path
-	if (options.absolute) {
-	  path = file.path;
-	}
-	else {
-	  path = file.path.replace(process.cwd(), '');
-	  path = path.replace(new RegExp('^[/\\\\]'), '');
-	}
-    filePaths.push(path.replace(/\\/g, '/'));
-  };
 
-  var onEnd = function() {
+    var filePath;
+    if (options.absolute) {
+      filePath = path.normalize(file.path);
+    } else if (options.flatten) {
+      filePath = path.basename(file.path);
+    } else {
+      filePath = path.relative(process.cwd(), file.path);
+    }
+    fileList.push(filePath);
 
-    var file = new File({
+    this.push(file);
+    cb();
+  }, function(cb) {
+    var fileListFile = new File({
       path: out,
-      contents: new Buffer(JSON.stringify(filePaths, null, '  '))
+      contents: new Buffer(JSON.stringify(fileList, null, '  '))
     });
 
-    this.emit('data', file);
-    this.emit('end');
-
-  };
-
-  return through(onFile, onEnd);
-
+    this.push(fileListFile);
+    cb();
+  });
 };

@@ -51,4 +51,20 @@ Outputs:
 ]
 ```
 
+#### Flattened Paths: `{ flatten: true }`
+
+```
+gulp
+  .src(['awesome.file', 'lame.file'])
+  .pipe(require('gulp-filelist')('filelist.json', { flatten: true }))
+  .pipe(gulp.dest('out'))
+```
+Outputs:
+```
+[
+  "awesome.file",
+  "lame.file"
+]
+```
+
 ## [MIT Licensed](LICENSE)
