@@ -34,6 +34,12 @@ module.exports = function(out, options) {
     } else {
       filePath = path.relative(process.cwd(), file.path);
     }
+    if (options.removeExtensions) {
+      var extension = path.extname(filePath);
+      if (extension.length) {
+        filePath = filePath.slice(0, -extension.length);
+      }
+    }
     fileList.push(filePath);
 
     this.push(file);

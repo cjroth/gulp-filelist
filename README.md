@@ -67,4 +67,20 @@ Outputs:
 ]
 ```
 
+#### Paths without Extensions: `{ removeExtensions: true }`
+
+```
+gulp
+  .src(['directory/awesome.file', 'directory/lame.file'])
+  .pipe(require('gulp-filelist')('filelist.json', { removeExtensions: true }))
+  .pipe(gulp.dest('out'))
+```
+Outputs:
+```
+[
+  "directory/awesome",
+  "directory/lame"
+]
+```
+
 ## [MIT Licensed](LICENSE)
