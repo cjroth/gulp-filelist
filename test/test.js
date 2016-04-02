@@ -51,7 +51,7 @@ describe('gulp-filelist', function(done) {
       });
   });
 
-  describe('should remove extensions when the removeExtensions option is true', function () {
+  describe('removeExtensions option', function () {
 
     it('should work without additional options', function(done) {
       var out = 'filelist-remove.json';
