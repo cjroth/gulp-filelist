@@ -10,7 +10,6 @@ module.exports = function(out, options) {
 
   options = options || {};
 
-  var files = [];
   var fileList = [];
 
   return through.obj(function(file, enc, cb) {
@@ -23,8 +22,6 @@ module.exports = function(out, options) {
       cb(new gutil.PluginError(pkg.name, 'Streams not supported'));
       return;
     }
-
-    files.push(file);
 
     var filePath;
     if (options.absolute) {
