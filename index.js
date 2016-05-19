@@ -43,7 +43,7 @@ module.exports = function(out, options) {
     filePath = filePath.replace(/\\/g, '/');
     fileList.push(filePath);
 
-    this.push(file);
+    // this.push(file);
     cb();
   }, function(cb) {
     var fileListFile = new File({
