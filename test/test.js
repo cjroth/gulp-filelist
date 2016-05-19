@@ -56,7 +56,7 @@ describe('gulp-filelist', function(done) {
       });
   });
 
-  describe('should remove extensions when the removeExtensions option is true', function () {
+  describe('removeExtensions option', function () {
 
     it('should work without additional options', function(done) {
       var out = 'filelist-remove.json';
@@ -106,6 +106,23 @@ describe('gulp-filelist', function(done) {
         });
     });
 
+  });
+
+  describe('cwd option when building the stream', function(done) {
+    it("should be honoured", function(done) {
+      var out = 'filelist-cwd.json';
+      var filelistPath = path.join(__dirname, out);
+      gulp
+        .src('test.file', { cwd: 'test/' })
+        .pipe(gulpFilelist(out))
+        .pipe(gulp.dest('test'))
+        .on('end', function() {
+          var filelist = require(filelistPath);
+          filelist[0].should.equal('test.file');
+          fs.unlinkSync(filelistPath);
+          done();
+        });
+    })
   });
 
 });

@@ -10,10 +10,10 @@ module.exports = function(out, options) {
 
   options = options || {};
 
-  var files = [];
   var fileList = [];
 
   return through.obj(function(file, enc, cb) {
+
     if (file.isNull()) {
       cb(null, file);
       return;
@@ -24,15 +24,13 @@ module.exports = function(out, options) {
       return;
     }
 
-    files.push(file);
-
     var filePath;
     if (options.absolute) {
       filePath = path.normalize(file.path);
     } else if (options.flatten) {
       filePath = path.basename(file.path);
     } else {
-      filePath = path.relative(process.cwd(), file.path);
+      filePath = path.relative(file.cwd, file.path);
     }
     if (options.removeExtensions) {
       var extension = path.extname(filePath);
