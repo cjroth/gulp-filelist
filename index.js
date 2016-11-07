@@ -39,13 +39,20 @@ module.exports = function(out, options) {
       }
     }
     filePath = filePath.replace(/\\/g, '/');
-    fileList.push(filePath);
+    
+    if(options.destRowTemplate) {
+      fileList.push(options.destRowTemplate.replace('@filePath@', filePath));
+    } else {
+      fileList.push(filePath);
+    }    
     
     cb();
   }, function(cb) {
+    var buffer = (options.destRowTemplate) ? new Buffer(fileList.join('\r\n')) : new Buffer(JSON.stringify(fileList, null, '  '));
+
     var fileListFile = new File({
       path: out,
-      contents: new Buffer(JSON.stringify(fileList, null, '  '))
+      contents: buffer
     });
 
     this.push(fileListFile);

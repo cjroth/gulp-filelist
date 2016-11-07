@@ -83,4 +83,20 @@ Outputs:
 ]
 ```
 
+#### Output file with custom template: `{ destRowTemplate: <rowStringTemplate> }`
+
+```
+gulp
+  .src(['directory/awesome.file', 'directory/lame.file'])
+  .pipe(require('gulp-filelist')('filelist.json', { destRowTemplate: "/// <amd dependency='@filePath@'/>" }))
+  .pipe(gulp.dest('out'))
+```
+Outputs:
+```
+[
+  "directory/awesome",
+  "directory/lame"
+]
+```
+
 ## [MIT Licensed](LICENSE)
