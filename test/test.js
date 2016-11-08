@@ -90,6 +90,22 @@ describe('gulp-filelist', function(done) {
         });
     });
 
+    it('should work with the destRowTemplate option', function (done) {
+      var out = 'filelist-dest-row-template.json';
+      var filelistPath = path.join(__dirname, out);
+      gulp
+        .src(source)
+        .pipe(gulpFilelist(out, { destRowTemplate: '/// <reference path=\'@filePath@\'/>' }))
+        .pipe(gulp.dest('test'))
+        .on('end', function(file) {
+          var filelist = require(filelistPath);
+          filelist[0].should.equal('file1');
+          filelist[1].should.equal('file2');
+          fs.unlinkSync(filelistPath);
+          done();
+        });
+    });
+
     it('should work with the absolute option', function (done) {
       var out = 'filelist-remove-absolute.json';
       var filelistPath = path.join(__dirname, out);
