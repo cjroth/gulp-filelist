@@ -1,7 +1,7 @@
 {
   "name": "gulp-filelist",
   "description": "Convert list of file paths in current stream to a JSON file.",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "author": "Chris Roth <chris@cjroth.com>",
   "contributors": [
     {
