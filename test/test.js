@@ -56,6 +56,22 @@ describe('gulp-filelist', function(done) {
       });
   });
 
+  it('should output relative file paths when the relative option is true', function(done) {
+    var out = 'filelist-relative.json';
+    var filelistPath = path.join(__dirname, out);
+    gulp
+      .src(source)
+      .pipe(gulpFilelist(out, { relative: true }))
+      .pipe(gulp.dest('test'))
+      .on('end', function(file) {
+        var filelist = require(filelistPath);
+        filelist[0].should.equal('file1.txt');
+        filelist[1].should.equal('file2.txt');
+        fs.unlinkSync(filelistPath);
+        done();
+      });
+  });
+
   describe('removeExtensions option', function () {
 
     it('should work without additional options', function(done) {
