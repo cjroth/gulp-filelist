@@ -29,6 +29,8 @@ module.exports = function(out, options) {
       filePath = path.normalize(file.path);
     } else if (options.flatten) {
       filePath = path.basename(file.path);
+    } else if (options.relative) {
+      filePath = file.relative;
     } else {
       filePath = path.relative(file.cwd, file.path);
     }

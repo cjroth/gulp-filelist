@@ -56,6 +56,7 @@ describe('gulp-filelist', function(done) {
       });
   });
 
+
   it('should work with the destRowTemplate option set to some value', function (done) {
     var out = 'filelist-dest-row-template.txt';
     var filelistPath = path.join(__dirname, out);
@@ -68,6 +69,22 @@ describe('gulp-filelist', function(done) {
         var fileRows = filelist.split('\r\n');
         fileRows.should.containEql('test/fixtures/file1.txt');
         fileRows.should.containEql('test/fixtures/file2.txt');
+        fs.unlinkSync(filelistPath);
+        done();
+      });
+  });
+
+  it('should output relative file paths when the relative option is true', function(done) {
+    var out = 'filelist-relative.json';
+    var filelistPath = path.join(__dirname, out);
+    gulp
+      .src(source)
+      .pipe(gulpFilelist(out, { relative: true }))
+      .pipe(gulp.dest('test'))
+      .on('end', function(file) {
+        var filelist = require(filelistPath);
+        filelist[0].should.equal('file1.txt');
+        filelist[1].should.equal('file2.txt');
         fs.unlinkSync(filelistPath);
         done();
       });
