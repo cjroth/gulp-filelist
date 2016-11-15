@@ -22,8 +22,8 @@ Outputs `out/filelist.json`:
 
 ```json
 [
-  "out/awesome.file",
-  "out/lame.file"
+  "awesome.file",
+  "lame.file"
 ]
 ```
 
@@ -48,6 +48,23 @@ Outputs:
 [
   "/Users/chris/my-project/out/awesome.file",
   "/Users/chris/my-project/out/lame.file"
+]
+```
+
+#### Relative Paths: `{ relative: true }`
+
+```
+gulp
+  .src(['awesome.file', 'lame.file'])
+  .pipe(require('gulp-rename')(function(path) { path.dirname = 'foo' }))
+  .pipe(require('gulp-filelist')('filelist.json', { relative: true }))
+  .pipe(gulp.dest('out'))
+```
+Outputs:
+```
+[
+  "foo/awesome.file",
+  "foo/lame.file"
 ]
 ```
 
