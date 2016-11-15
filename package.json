@@ -1,57 +1,78 @@
 {
-  "name": "gulp-filelist",
-  "description": "Convert list of file paths in current stream to a JSON file.",
-  "version": "0.6.3",
-  "author": "Chris Roth <chris@cjroth.com>",
-  "contributors": [
-    {
-      "name": "Paul Welsh",
-      "email": "spacedawwwg@gmail.com"
+    "name": "gulp-filelist",
+    "description": "Output list of files in current stream to JSON file or custom format.",
+    "version": "1.0.0",
+    "author": {
+        "name": "Chris Roth",
+        "url": "https://github.com/cjroth",
+        "email": "chris@cjroth.com"
     },
-    {
-      "name": "Maxwell Barvian",
-      "email": "max@barvian.me"
+    "contributors": [{
+        "name": "Alex DeJarnatt",
+        "url": "https://github.com/alexdej"
+    }, {
+        "name": "Andrea Paciolla",
+        "email": "andreapaciolla@gmail.com",
+        "url": "https://github.com/AndreaPaciolla"
+    }, {
+        "name": "Bach Ly",
+        "url": "https://github.com/bachly"
+    }, {
+        "name": "Colm McBarron",
+        "url": "https://github.com/ColmMcBarron"
+    }, {
+        "name": "Florian Wendelborn",
+        "email": "florianwendgithub@gmail.com",
+        "url": "https://github.com/dodekeract"
+    }, {
+        "name": "Ian Renyard",
+        "url": "https://github.com/renyard"
+    }, {
+        "name": "Maxwell Barvian",
+        "email": "max@barvian.me",
+        "url": "https://github.com/barvian"
+    }, {
+        "name": "Paul Apostol",
+        "url": "https://github.com/devel-pa"
+    }, {
+        "name": "Paul Welsh",
+        "email": "spacedawwwg@gmail.com",
+        "url": "https://github.com/spacedawwwg"
+    }, {
+        "name": "Sebastián González",
+        "url": "https://github.com/tagae"
+    }],
+    "bugs": "https://github.com/cjroth/gulp-filelist/issues",
+    "dependencies": {
+        "gulp-util": "^3.0.7",
+        "path": "^0.12.7",
+        "through2": "^2.0.0",
+        "vinyl": "^1.1.0"
     },
-    {
-      "name": "Florian Wendelborn",
-      "email": "florianwendgithub@gmail.com"
+    "devDependencies": {
+        "gulp": "^3.8.11",
+        "mocha": "^1.21.4",
+        "should": "^4.0.4"
     },
-    {
-      "name": "Andrea Paciolla",
-      "email": "andreapaciolla@gmail.com"
+    "engines": {
+        "node": ">= 0.8"
+    },
+    "homepage": "https://github.com/cjroth/gulp-filelist/",
+    "keywords": [
+        "gulp",
+        "gulpplugin",
+        "extension",
+        "absolute",
+        "path",
+        "combine",
+        "json"
+    ],
+    "license": "MIT",
+    "main": "index.js",
+    "repository": "https://github.com/cjroth/gulp-filelist.git",
+    "scripts": {
+        "test": "mocha --reporter spec --bail --check-leaks --require should test/",
+        "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks --require should test/",
+        "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks --require should test/"
     }
-  ],
-  "bugs": "https://github.com/cjroth/gulp-filelist/issues",
-  "dependencies": {
-    "gulp-util": "^3.0.7",
-    "path": "^0.12.7",
-    "through2": "^2.0.0",
-    "vinyl": "^1.1.0"
-  },
-  "devDependencies": {
-    "gulp": "^3.8.11",
-    "mocha": "^1.21.4",
-    "should": "^4.0.4"
-  },
-  "engines": {
-    "node": ">= 0.8"
-  },
-  "homepage": "https://github.com/cjroth/gulp-filelist/",
-  "keywords": [
-    "gulp",
-    "gulpplugin",
-    "extension",
-    "absolute",
-    "path",
-    "combine",
-    "json"
-  ],
-  "license": "MIT",
-  "main": "index.js",
-  "repository": "https://github.com/cjroth/gulp-filelist.git",
-  "scripts": {
-    "test": "mocha --reporter spec --bail --check-leaks --require should test/",
-    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks --require should test/",
-    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks --require should test/"
-  }
 }

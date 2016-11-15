@@ -7,7 +7,7 @@
 [![Coverage Status](https://img.shields.io/coveralls/cjroth/gulp-filelist.svg?style=flat)](https://coveralls.io/r/cjroth/gulp-filelist)
 [![Gittip](http://img.shields.io/gittip/cjroth.svg)](https://www.gittip.com/cjroth/)
 
-#### Convert list of file paths in current stream to a file with wathever extension you want.
+#### Output list of files in current stream to JSON file or custom format.
 
 Add it to your gulp file:
 
