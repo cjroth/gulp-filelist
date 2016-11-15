@@ -56,6 +56,23 @@ describe('gulp-filelist', function(done) {
       });
   });
 
+  it('should work with the destRowTemplate option set to some value', function (done) {
+    var out = 'filelist-dest-row-template.txt';
+    var filelistPath = path.join(__dirname, out);
+    gulp
+      .src(source)
+      .pipe(gulpFilelist(out, { destRowTemplate: "@filePath@\r\n" }))
+      .pipe(gulp.dest('test'))
+      .on('end', function(file) {
+        var filelist = fs.readFileSync(filelistPath, 'UTF-8');
+        var fileRows = filelist.split('\r\n');
+        fileRows.should.containEql('test/fixtures/file1.txt');
+        fileRows.should.containEql('test/fixtures/file2.txt');
+        fs.unlinkSync(filelistPath);
+        done();
+      });
+  });
+
   describe('removeExtensions option', function () {
 
     it('should work without additional options', function(done) {
@@ -80,22 +97,6 @@ describe('gulp-filelist', function(done) {
       gulp
         .src(source)
         .pipe(gulpFilelist(out, { removeExtensions: true, flatten: true }))
-        .pipe(gulp.dest('test'))
-        .on('end', function(file) {
-          var filelist = require(filelistPath);
-          filelist[0].should.equal('file1');
-          filelist[1].should.equal('file2');
-          fs.unlinkSync(filelistPath);
-          done();
-        });
-    });
-
-    it('should work with the destRowTemplate option', function (done) {
-      var out = 'filelist-dest-row-template.json';
-      var filelistPath = path.join(__dirname, out);
-      gulp
-        .src(source)
-        .pipe(gulpFilelist(out, { destRowTemplate: '/// <reference path=\'@filePath@\'/>' }))
         .pipe(gulp.dest('test'))
         .on('end', function(file) {
           var filelist = require(filelistPath);
