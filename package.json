@@ -1,47 +1,62 @@
 {
     "name": "gulp-filelist",
     "description": "Output list of files in current stream to JSON file or custom format.",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "author": {
         "name": "Chris Roth",
         "url": "https://github.com/cjroth",
         "email": "chris@cjroth.com"
     },
-    "contributors": [{
-        "name": "Alex DeJarnatt",
-        "url": "https://github.com/alexdej"
-    }, {
-        "name": "Andrea Paciolla",
-        "email": "andreapaciolla@gmail.com",
-        "url": "https://github.com/AndreaPaciolla"
-    }, {
-        "name": "Bach Ly",
-        "url": "https://github.com/bachly"
-    }, {
-        "name": "Colm McBarron",
-        "url": "https://github.com/ColmMcBarron"
-    }, {
-        "name": "Florian Wendelborn",
-        "email": "florianwendgithub@gmail.com",
-        "url": "https://github.com/dodekeract"
-    }, {
-        "name": "Ian Renyard",
-        "url": "https://github.com/renyard"
-    }, {
-        "name": "Maxwell Barvian",
-        "email": "max@barvian.me",
-        "url": "https://github.com/barvian"
-    }, {
-        "name": "Paul Apostol",
-        "url": "https://github.com/devel-pa"
-    }, {
-        "name": "Paul Welsh",
-        "email": "spacedawwwg@gmail.com",
-        "url": "https://github.com/spacedawwwg"
-    }, {
-        "name": "Sebastián González",
-        "url": "https://github.com/tagae"
-    }],
+    "contributors": [
+        {
+            "name": "Alex DeJarnatt",
+            "url": "https://github.com/alexdej"
+        },
+        {
+            "name": "Andrea Paciolla",
+            "email": "andreapaciolla@gmail.com",
+            "url": "https://github.com/AndreaPaciolla"
+        },
+        {
+            "name": "Bach Ly",
+            "url": "https://github.com/bachly"
+        },
+        {
+            "name": "Colm McBarron",
+            "url": "https://github.com/ColmMcBarron"
+        },
+        {
+            "name": "Florian Wendelborn",
+            "email": "florianwendgithub@gmail.com",
+            "url": "https://github.com/dodekeract"
+        },
+        {
+            "name": "Ian Renyard",
+            "url": "https://github.com/renyard"
+        },
+        {
+            "name": "Maxwell Barvian",
+            "email": "max@barvian.me",
+            "url": "https://github.com/barvian"
+        },
+        {
+            "name": "Paul Apostol",
+            "url": "https://github.com/devel-pa"
+        },
+        {
+            "name": "Paul Welsh",
+            "email": "spacedawwwg@gmail.com",
+            "url": "https://github.com/spacedawwwg"
+        },
+        {
+            "name": "Sebastián González",
+            "url": "https://github.com/tagae"
+        },
+        {
+            "name": "Vlad Bondarenko",
+            "url": "https://github.com/treago"
+        }
+    ],
     "bugs": "https://github.com/cjroth/gulp-filelist/issues",
     "dependencies": {
         "gulp-util": "^3.0.7",
@@ -51,6 +66,7 @@
     },
     "devDependencies": {
         "gulp": "^3.8.11",
+        "istanbul": "^0.4.5",
         "mocha": "^1.21.4",
         "should": "^4.0.4"
     },

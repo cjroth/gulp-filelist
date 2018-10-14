@@ -42,8 +42,10 @@ module.exports = function(out, options) {
     }
     filePath = filePath.replace(/\\/g, '/');
 
-    if(options.destRowTemplate) {
-      fileList.push(options.destRowTemplate.replace(new RegExp('@filePath@', 'g'), filePath));
+    if (options.destRowTemplate && typeof options.destRowTemplate === 'string') {
+      fileList.push(options.destRowTemplate.replace(/\@filePath\@/g, filePath));
+    } else if (options.destRowTemplate && typeof options.destRowTemplate === 'function') {
+      fileList.push(options.destRowTemplate(filePath));
     } else {
       fileList.push(filePath);
     }

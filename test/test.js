@@ -62,13 +62,34 @@ describe('gulp-filelist', function(done) {
     var filelistPath = path.join(__dirname, out);
     gulp
       .src(source)
-      .pipe(gulpFilelist(out, { destRowTemplate: "@filePath@\r\n" }))
+      .pipe(gulpFilelist(out, { destRowTemplate: "@filePath@ - @filePath@\r\n" }))
       .pipe(gulp.dest('test'))
       .on('end', function(file) {
         var filelist = fs.readFileSync(filelistPath, 'UTF-8');
         var fileRows = filelist.split('\r\n');
-        fileRows.should.containEql('test/fixtures/file1.txt');
-        fileRows.should.containEql('test/fixtures/file2.txt');
+        fileRows.should.containEql('test/fixtures/file1.txt - test/fixtures/file1.txt');
+        fileRows.should.containEql('test/fixtures/file2.txt - test/fixtures/file2.txt');
+        fs.unlinkSync(filelistPath);
+        done();
+      });
+  });
+
+  it('should work with the destRowTemplate option set to a function', function (done) {
+    function formatter(filePath) {
+      return filePath.substring(filePath.lastIndexOf('/') + 1) + ': ' + filePath + '\r\n';
+    }
+
+    var out = 'filelist-dest-row-template-function.txt';
+    var filelistPath = path.join(__dirname, out);
+    gulp
+      .src(source)
+      .pipe(gulpFilelist(out, { destRowTemplate: formatter }))
+      .pipe(gulp.dest('test'))
+      .on('end', function(file) {
+        var filelist = fs.readFileSync(filelistPath, 'UTF-8');
+        var fileRows = filelist.split('\r\n');
+        fileRows.should.containEql('file1.txt: test/fixtures/file1.txt');
+        fileRows.should.containEql('file2.txt: test/fixtures/file2.txt');
         fs.unlinkSync(filelistPath);
         done();
       });
