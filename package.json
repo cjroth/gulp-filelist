@@ -66,6 +66,7 @@
     },
     "devDependencies": {
         "gulp": "^3.8.11",
+        "istanbul": "^0.4.5",
         "mocha": "^1.21.4",
         "should": "^4.0.4"
     },
