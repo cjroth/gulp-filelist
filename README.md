@@ -100,8 +100,9 @@ Outputs:
 ]
 ```
 
-#### Output file with custom template: `{ destRowTemplate: <rowStringTemplate> }`
+#### Output file with custom template: `{ destRowTemplate: <rowStringTemplate | function> }`
 
+usage with string template
 ```
 gulp
   .src(['directory/awesome.file', 'directory/lame.file'])
@@ -111,9 +112,28 @@ gulp
 Outputs:
 ```
 [
-  "directory/awesome",
-  "directory/lame"
+  "/// <amd dependency='directory/awesome'/>",
+  "/// <amd dependency='directory/lame'/>"
 ]
 ```
 
+usage with formatter function
+
+```
+function formatter(filePath) {
+  return filePath.substring(filePath.lastIndexOf('/') + 1) + ': ' + filePath + '\r\n';
+}
+
+gulp
+  .src(['directory/awesome.file', 'directory/lame.file'])
+  .pipe(require('gulp-filelist')('filelist.json', { destRowTemplate: formatter }))
+  .pipe(gulp.dest('out'))
+```
+Outputs:
+```
+[
+  "awesome: directory/awesome",
+  "lame: directory/lame"
+]
+```
 ## [MIT Licensed](LICENSE)
