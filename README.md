@@ -3,7 +3,7 @@
 [![NPM Version](https://img.shields.io/npm/v/gulp-filelist.svg?style=flat)](https://www.npmjs.org/package/gulp-filelist)
 [![NPM Downloads](https://img.shields.io/npm/dm/gulp-filelist.svg?style=flat)](https://www.npmjs.org/package/gulp-filelist)
 [![Node.js Version](https://img.shields.io/badge/node.js->=_0.8-brightgreen.svg?style=flat)](http://nodejs.org/download/)
-[![Build Status](http://img.shields.io/travis/cjroth/gulp-filelist.svg?style=flat)](https://travis-ci.org/cjroth/gulp-filelist)
+[![Build Status](https://travis-ci.com/cjroth/gulp-filelist.svg?branch=master)](https://travis-ci.org/cjroth/gulp-filelist)
 [![Coverage Status](https://img.shields.io/coveralls/cjroth/gulp-filelist.svg?style=flat)](https://coveralls.io/r/cjroth/gulp-filelist)
 [![Gittip](http://img.shields.io/gittip/cjroth.svg)](https://www.gittip.com/cjroth/)
 
