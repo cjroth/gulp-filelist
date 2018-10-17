@@ -1,6 +1,6 @@
 'use strict';
 var pkg = require('./package');
-var gutil = require('gulp-util');
+var PluginError = require('plugin-error');
 var through = require('through2');
 var path = require('path');
 var File = require('vinyl');
@@ -20,7 +20,7 @@ module.exports = function(out, options) {
     }
 
     if (file.isStream()) {
-      cb(new gutil.PluginError(pkg.name, 'Streams not supported'));
+      cb(new PluginError(pkg.name, 'Streams not supported'));
       return;
     }
 
