@@ -1,11 +1,31 @@
+var pkg = require('../package');
 var fs = require('fs');
 var path = require('path');
 var gulp = require('gulp');
 var gulpFilelist = require('..');
+var assert = require('assert');
 
 var source = 'test/fixtures/*.txt';
 
 describe('gulp-filelist', function(done) {
+
+  it('should return an error, if used with a stream', function (done) {
+    var out = 'filelist-dest-row-template-function.txt';
+    var filelistPath = path.join(__dirname, out);
+    gulp
+      .src(source, {buffer: false})
+      .pipe(gulpFilelist(out)
+        .on('error', function(error) {
+          error.plugin.should.equal(pkg.name);
+          error.message.should.equal('Streams not supported');
+          done();
+        }))
+      .pipe(gulp.dest('test'))
+      .on('end', function(file) {
+        fs.unlinkSync(filelistPath);
+        assert.fail('there should have been an error');
+      });
+  });
 
   it('should output a json file with a list of the files currently in the stream', function(done) {
     var out = 'filelist.json';
