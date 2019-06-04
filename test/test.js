@@ -4,9 +4,9 @@ var path = require('path');
 var gulp = require('gulp');
 var gulpFilelist = require('..');
 var assert = require('assert');
+var should = require('should');
 
 var source = 'test/fixtures/*.txt';
-
 describe('gulp-filelist', function(done) {
 
   it('should return an error, if used with a stream', function (done) {
