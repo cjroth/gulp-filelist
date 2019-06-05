@@ -7,6 +7,13 @@
 
 #### Output list of files in current stream to JSON file or custom format.
 
+Note: This version of gulp-filelist, 1.2.0 is compatible with Node 6+, and Gulp 4+.
+
+Add to your Node.js dev dependencies:
+```bash
+npm install --savedev gulp-filelist
+```
+
 Add it to your gulp file:
 
 ```js
