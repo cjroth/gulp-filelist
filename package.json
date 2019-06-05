@@ -1,7 +1,7 @@
 {
   "name": "gulp-filelist",
   "description": "Output list of files in current stream to JSON file or custom format.",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "author": {
     "name": "Chris Roth",
     "url": "https://github.com/cjroth",
@@ -11,6 +11,11 @@
     {
       "name": "Alex DeJarnatt",
       "url": "https://github.com/alexdej"
+    },
+    {
+      "name": "Andre Lewis",
+      "email": "andre@fromberkeleywithlove.com",
+      "url": "https://github.com/mrmowgli"
     },
     {
       "name": "Andrea Paciolla",
