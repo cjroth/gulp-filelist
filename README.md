@@ -2,7 +2,7 @@
 
 [![NPM Version](https://img.shields.io/npm/v/gulp-filelist.svg?style=flat)](https://www.npmjs.org/package/gulp-filelist)
 [![NPM Downloads](https://img.shields.io/npm/dm/gulp-filelist.svg?style=flat)](https://www.npmjs.org/package/gulp-filelist)
-[![Node.js Version](https://img.shields.io/badge/node.js->=_0.8-brightgreen.svg?style=flat)](http://nodejs.org/download/)
+[![Node.js Version](https://img.shields.io/badge/node.js->=_10-brightgreen.svg?style=flat)](http://nodejs.org/download/)
 [![Build Status](https://travis-ci.com/cjroth/gulp-filelist.svg?branch=master)](https://travis-ci.org/cjroth/gulp-filelist)
 
 #### Output list of files in current stream to JSON file or custom format.

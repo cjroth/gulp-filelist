@@ -89,7 +89,7 @@
 		"should": "^13.2.3"
 	},
 	"engines": {
-		"node": ">= 0.8"
+		"node": ">= 10"
 	},
 	"homepage": "https://github.com/cjroth/gulp-filelist/",
 	"keywords": [
